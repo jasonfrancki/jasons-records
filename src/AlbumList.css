@@ -1,0 +1,19 @@
+.albums {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: auto;
+  width: 100vw;
+  padding: 0;
+}
+
+.album {
+  width: 25%;
+  background-color: gainsboro;
+}
+
+.album img {
+  width: 100%;
+}
