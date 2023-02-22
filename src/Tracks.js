@@ -9,18 +9,29 @@ const Tracks = ({ tracks }) => {
   return (
     <div>
       {/* track listing */}
-      <ol
+      <ul
         style={{
           textAlign: 'left',
+          padding: '5rem 2rem',
+          listStyle: 'none',
         }}
       >
-        {tracks.map((track) => {
+        {tracks.map((track, i) => {
           return (
-            <li key={track.id}>
+            <li
+              key={track.id}
+              style={{
+                fontSize: '1.5rem',
+                padding: '.25rem',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
               <h3
                 style={{
                   display: 'inline',
                   cursor: 'pointer',
+                  paddingRight: '.75rem',
                 }}
                 onClick={() => {
                   if (!isPlaying || sampleUrl !== track.preview) {
@@ -37,11 +48,11 @@ const Tracks = ({ tracks }) => {
               >
                 {sampleUrl === track.preview ? '⏹️' : '▶️'}
               </h3>
-              {track.title}
+              <div>{`${i + 1}. ${track.title}`}</div>
             </li>
           )
         })}
-      </ol>
+      </ul>
       <audio
         ref={audio}
         onEnded={() => {
