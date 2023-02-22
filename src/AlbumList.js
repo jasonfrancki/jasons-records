@@ -34,7 +34,17 @@ const AlbumList = ({ results }) => {
           .map((album) => {
             const { artist, albumTitle, cover, altImg, deezerId } = album
             return (
-              <Link key={album._id} className='album' to={`/album/${deezerId}`}>
+              <Link
+                key={album._id}
+                className='album'
+                to={`/album/${deezerId}`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'black',
+                  fontSize: '1.5rem',
+                  textAlign: 'center',
+                }}
+              >
                 <li
                 // id={artist[0]}
                 // onClick={(e) => {
@@ -67,9 +77,10 @@ const AlbumList = ({ results }) => {
                   ) : (
                     ''
                   )}
-
-                  <h3>{artist}</h3>
-                  <h4>{albumTitle}</h4>
+                  <div style={{ padding: '1rem' }}>
+                    <h3>{artist}</h3>
+                    <h5 style={{ color: '#666' }}>{albumTitle}</h5>
+                  </div>
                   {/* {altImg ? <h3 className='more'>...</h3> : ''} */}
                 </li>
               </Link>
