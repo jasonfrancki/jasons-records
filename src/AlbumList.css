@@ -19,4 +19,5 @@
   width: 100%;
   border-top-left-radius: 2%;
   border-top-right-radius: 2%;
+  aspect-ratio: 1 / 1;
 }
