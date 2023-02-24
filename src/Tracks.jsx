@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import './Tracks.css'
 
 const Tracks = ({ tracks }) => {
   const [sampleUrl, setSampleUrl] = useState(null)
@@ -9,30 +10,12 @@ const Tracks = ({ tracks }) => {
   return (
     <div>
       {/* track listing */}
-      <ul
-        style={{
-          textAlign: 'left',
-          padding: '5rem 2rem',
-          listStyle: 'none',
-        }}
-      >
+      <ul className='track-listing'>
         {tracks.map((track, i) => {
           return (
-            <li
-              key={track.id}
-              style={{
-                fontSize: '1.5rem',
-                padding: '.25rem',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
+            <li className='track' key={track.id}>
               <h3
-                style={{
-                  display: 'inline',
-                  cursor: 'pointer',
-                  paddingRight: '.75rem',
-                }}
+                className='track-media-button'
                 onClick={() => {
                   if (!isPlaying || sampleUrl !== track.preview) {
                     setIsPlaying(true)
@@ -48,7 +31,8 @@ const Tracks = ({ tracks }) => {
               >
                 {sampleUrl === track.preview ? '⏹️' : '▶️'}
               </h3>
-              <div>{`${i + 1}. ${track.title}`}</div>
+              <div className='track-number'>{`${i + 1}. `}</div>
+              <div className='track-title'>{track.title}</div>
             </li>
           )
         })}

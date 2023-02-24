@@ -1,8 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import AlbumList from './AlbumList'
-import Album from './Album'
-import './App.css'
+import AlbumInfo from './AlbumInfo'
 
 function App() {
   const [albums, setAlbums] = useState(null)
@@ -25,7 +24,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<AlbumList results={results} />} />
-        <Route path='/album/:deezerId' element={<Album />} />
+        <Route path='/album/:deezerId' element={<AlbumInfo />} />
       </Routes>
     </BrowserRouter>
   )

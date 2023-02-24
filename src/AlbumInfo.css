@@ -1,0 +1,19 @@
+.album-info {
+  min-height: 100vh;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgb(241, 239, 239);
+}
+
+.album-artist {
+  margin: 3rem 0 0.5rem;
+}
+
+.album-title {
+  margin-bottom: 3rem;
+}
+
+.album-details {
+  margin: 0.5rem 0;
+  font-weight: normal;
+}

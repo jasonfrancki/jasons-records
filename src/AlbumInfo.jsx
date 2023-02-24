@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Tracks from './Tracks'
+import './AlbumInfo.css'
 
 const Album = () => {
   const [album, setAlbum] = useState(null)
@@ -30,30 +31,25 @@ const Album = () => {
   }
   console.log(album)
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        padding: '5rem',
-        textAlign: 'center',
-        backgroundColor: 'rgb(241, 239, 239)',
-      }}
-    >
+    <div className='album-info'>
       <img
         src={album.cover_big}
         alt='album cover'
         style={{ borderRadius: '2%' }}
+        width='100%'
       />
-      <h1 style={{ padding: '1rem', fontSize: '3rem' }}>
-        {album.artist.name} - {album.title}
-      </h1>
-      <h3 style={{ padding: '.25rem' }}>
+      <h1 className='album-artist'>{album.artist.name}</h1>
+      <h2 className='album-title'>{album.title}</h2>
+      <h3 className='album-details'>
         {album.tracks.data.length} tracks - {Math.floor(album.duration / 60)}{' '}
-        minutes -{' '}
-        {`${album.release_date.split('-')[1]}/${
+        minutes
+      </h3>
+      <h3 className='album-details'>
+        {`Released ${album.release_date.split('-')[1]}/${
           album.release_date.split('-')[2]
         }/${album.release_date.split('-')[0]}`}
       </h3>
-      <h3 style={{ padding: '.25rem' }}>
+      <h3 className='album-details'>
         {album.genres.data[0].name} - {album.label}
       </h3>
       <Tracks tracks={album.tracks.data} />
