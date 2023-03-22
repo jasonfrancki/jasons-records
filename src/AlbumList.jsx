@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import './AlbumList.css'
 import { Link, ScrollRestoration } from 'react-router-dom'
 
-const AlbumList = ({ results }) => {
+const AlbumList = ({ results, query, setQuery }) => {
   const builder = imageUrlBuilder({
     projectId: '8v3qbg1x',
     dataset: 'production',
@@ -20,6 +20,30 @@ const AlbumList = ({ results }) => {
 
   return (
     <div>
+      <header className='header'>
+      {/* Search Bar */}
+
+      <form className='search-form'>
+        <input
+          className='search-query'
+          type='text'
+          value={query}
+          placeholder='search'
+          onChange={(e) => {
+            setQuery(e.target.value)
+          }}
+        />
+
+        <input
+          className='reset-button'
+          type='button'
+          value='x'
+          onClick={() => setQuery('')}
+        />
+      </form>
+
+      {/* End of Search Bar */}
+      </header>
       <ul className='albums'>
         {results
           .sort((a, b) => {

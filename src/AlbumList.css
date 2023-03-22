@@ -1,10 +1,17 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
 .albums {
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 4rem;
-  margin: auto;
+  margin: 4rem auto;
   padding: 0;
   max-width: 1800px;
 }
@@ -20,6 +27,27 @@
   border-top-left-radius: 2%;
   border-top-right-radius: 2%;
   aspect-ratio: 1 / 1;
+}
+
+.search-form {
+  margin: 1rem auto;
+  /* width: 80vw; */
+  max-width: 300px;
+}
+
+.search-query {
+  width: 90%;
+  padding: .25rem .5rem;
+  border: none;
+  outline: none;
+}
+
+.reset-button {
+  width: 10%;
+  padding: .25rem;
+  cursor: pointer;
+  
+  border: none;
 }
 
 @media screen and (min-width: 700px) {
