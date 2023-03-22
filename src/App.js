@@ -4,8 +4,9 @@ import AlbumList from './AlbumList'
 import AlbumInfo from './AlbumInfo'
 
 function App() {
-  const [albums, setAlbums] = useState(null)
-  const [results, setResults] = useState(null)
+  const [albums, setAlbums] = useState([])
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
 
   const getAlbums = async () => {
     const response = await fetch(
@@ -20,10 +21,22 @@ function App() {
     getAlbums()
   }, [])
 
+  useEffect(
+    () => {
+      const searchResults = albums.filter(
+        (album) =>
+          album.artist.toLowerCase().includes(query.toLowerCase()) ||
+          album.albumTitle.toLowerCase().includes(query.toLowerCase())
+      )
+      setResults(searchResults)
+    },
+    [query]
+  )
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<AlbumList results={results} />} />
+        <Route path='/' element={<AlbumList results={results} query={query} setQuery={setQuery} />} />
         <Route path='/album/:deezerId' element={<AlbumInfo />} />
       </Routes>
     </BrowserRouter>
