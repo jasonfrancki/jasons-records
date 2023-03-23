@@ -20,6 +20,7 @@ const AlbumList = ({ results, query, setQuery }) => {
 
   return (
     <div>
+      <div className="header-container">
       <header className='header'>
       {/* Search Bar */}
       <div><h1>Jason's Records</h1></div>
@@ -43,7 +44,7 @@ const AlbumList = ({ results, query, setQuery }) => {
       </form>
 
       {/* End of Search Bar */}
-      </header>
+      </header></div>
       <ul className='albums'>
         {results
           .sort((a, b) => {

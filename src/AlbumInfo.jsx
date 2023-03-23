@@ -32,26 +32,29 @@ const Album = () => {
   console.log(album)
   return (
     <div className='album-info'>
+      <div className="album-details">
+      <div className="album-image">
       <img
         src={album.cover_big}
         alt='album cover'
         style={{ borderRadius: '2%' }}
         width='100%'
-      />
-      <h1 className='album-artist'>{album.artist.name}</h1>
-      <h2 className='album-title'>{album.title}</h2>
-      <h3 className='album-details'>
+      /></div>
+      <div className="album-data">
+      <h1 className='album-title'>{album.title}</h1>
+      <h3 className='album-artist'>{album.artist.name}</h3>
+      <h5 className='album-details'>
         {album.tracks.data.length} tracks - {Math.floor(album.duration / 60)}{' '}
         minutes
-      </h3>
-      <h3 className='album-details'>
+      </h5>
+      <h5 className='album-details'>
         {`Released ${album.release_date.split('-')[1]}/${
           album.release_date.split('-')[2]
         }/${album.release_date.split('-')[0]}`}
-      </h3>
-      <h3 className='album-details'>
+      </h5>
+      <h5 className='album-details'>
         {album.genres.data[0].name} - {album.label}
-      </h3>
+      </h5></div></div>
       <Tracks tracks={album.tracks.data} />
     </div>
   )

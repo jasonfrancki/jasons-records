@@ -1,12 +1,11 @@
 .track-listing {
-  list-style: none;
-  margin-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .track {
-  font-size: 1rem;
+  /* font-size: 1rem; */
   /* padding: 0.25rem; */
-  padding: 0.75rem 0;
+  padding: 0.5rem;
 
   display: flex;
   align-items: center;
@@ -26,5 +25,15 @@
   text-align: right;
 }
 .track-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+
+  .track-listing { 
+    padding-top: 3rem;
+  }
+  .track-title {
+    font-size: 1.5rem;
+  }
 }
