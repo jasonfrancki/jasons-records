@@ -22,7 +22,7 @@ const AlbumList = ({ results, query, setQuery }) => {
     <div>
       <header className='header'>
       {/* Search Bar */}
-
+      <div><h1>Jason's Records</h1></div>
       <form className='search-form'>
         <input
           className='search-query'
