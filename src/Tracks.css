@@ -14,8 +14,11 @@
 
 .track-media-button {
   cursor: pointer;
-  padding-right: 0.5rem;
+  padding: 0 0.5rem;
+  line-height: 100%;
   font-size: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 .track-number {
@@ -26,6 +29,9 @@
 }
 .track-title {
   font-size: 1rem;
+}
+
+h2 {
 }
 
 @media screen and (min-width: 500px) {

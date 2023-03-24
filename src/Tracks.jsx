@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react'
+import {BsFillPlayBtnFill, BsFillStopBtnFill} from 'react-icons/bs'
 import './Tracks.css'
+import { icons } from 'react-icons'
 
 const Tracks = ({ tracks }) => {
   const [sampleUrl, setSampleUrl] = useState(null)
@@ -14,7 +16,7 @@ const Tracks = ({ tracks }) => {
         {tracks.map((track, i) => {
           return (
             <li className='track' key={track.id}>
-              <h3
+              <h2
                 className='track-media-button'
                 onClick={() => {
                   if (!isPlaying || sampleUrl !== track.preview) {
@@ -29,8 +31,8 @@ const Tracks = ({ tracks }) => {
                   }
                 }}
               >
-                {sampleUrl === track.preview ? '⏹️' : '▶️'}
-              </h3>
+                {sampleUrl === track.preview ? <BsFillStopBtnFill /> : <BsFillPlayBtnFill />}
+              </h2>
               <div className='track-number'>{`${i + 1}. `}</div>
               <div className='track-title'>{track.title}</div>
             </li>
