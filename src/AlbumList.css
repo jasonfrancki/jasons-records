@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;  
-  background-color: rgb(34, 34, 34);
+  background-color: #232F3E;
 }
 
 .header {
@@ -32,7 +32,7 @@ margin: auto;
 .album {
   border-radius: 2%;
   width: 75%;
-  background-color: rgb(241, 239, 239);
+  background-color: #FFF;
 }
 
 .album img {

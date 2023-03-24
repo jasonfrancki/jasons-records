@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import {BsBackspace} from 'react-icons/bs'
 import Tracks from './Tracks'
 import './AlbumInfo.css'
 
@@ -22,6 +24,8 @@ const Album = () => {
     setAlbum(album)
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getAlbum()
   }, [])
@@ -32,6 +36,10 @@ const Album = () => {
   console.log(album)
   return (
     <div className='album-info'>
+      <div className="back-nav"><BsBackspace color='blue' onClick={() => {
+		navigate(-1);
+	}} />
+      </div>
       <div className="album-details">
       <div className="album-image">
       <img

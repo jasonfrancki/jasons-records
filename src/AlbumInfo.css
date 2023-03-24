@@ -1,9 +1,22 @@
+.back-nav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  }
+
+.back-nav i {
+  color: blue;
+}
 
 .album-info {
   min-height: 100vh;
-  padding-top: 1rem;
+  padding-top: 3rem;
   /* text-align: center; */
-  background-color: rgb(241, 239, 239);
+  background-color: #E3E6E6;
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
 }
 
 .album-data {
@@ -18,7 +31,6 @@
 
 .album-image {
   display: flex;
-  margin-top: 2rem;
 }
 
 .album-image img {
@@ -40,6 +52,7 @@
     font-size: 1.5rem;
     margin: 1rem 0;
   }
+
   .album-image img {
     margin: 0 1rem;
     width: 400px;
@@ -48,4 +61,8 @@
     padding-left: 2rem;
     align-self: center;
   }
+  .back-nav {
+    top: 2rem;
+    right: 2rem;
+    }
 }
