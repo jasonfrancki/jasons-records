@@ -1,23 +1,22 @@
-import { useState, useRef } from 'react'
-import {BsFillPlayBtnFill, BsFillStopBtnFill} from 'react-icons/bs'
-import './Tracks.css'
-import { icons } from 'react-icons'
+import { useState, useRef } from "react"
+import { BsFillPlayBtnFill, BsFillStopBtnFill } from "react-icons/bs"
+import "./Tracks.css"
+import { icons } from "react-icons"
 
 const Tracks = ({ tracks }) => {
   const [sampleUrl, setSampleUrl] = useState(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const audio = useRef()
-  console.log(tracks)
 
   return (
     <div>
       {/* track listing */}
-      <ul className='track-listing'>
+      <ul className="track-listing">
         {tracks.map((track, i) => {
           return (
-            <li className='track' key={track.id}>
+            <li className="track" key={track.id}>
               <h2
-                className='track-media-button'
+                className="track-media-button"
                 onClick={() => {
                   if (!isPlaying || sampleUrl !== track.preview) {
                     setIsPlaying(true)
@@ -31,10 +30,14 @@ const Tracks = ({ tracks }) => {
                   }
                 }}
               >
-                {sampleUrl === track.preview ? <BsFillStopBtnFill /> : <BsFillPlayBtnFill />}
+                {sampleUrl === track.preview ? (
+                  <BsFillStopBtnFill />
+                ) : (
+                  <BsFillPlayBtnFill />
+                )}
               </h2>
-              <div className='track-number'>{`${i + 1}. `}</div>
-              <div className='track-title'>{track.title}</div>
+              <div className="track-number">{`${i + 1}. `}</div>
+              <div className="track-title">{track.title}</div>
             </li>
           )
         })}
