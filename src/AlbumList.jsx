@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import imageUrlBuilder from '@sanity/image-url'
 import './AlbumList.css'
-import { Link, ScrollRestoration } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const AlbumList = ({ results, query, setQuery }) => {
   const builder = imageUrlBuilder({
@@ -21,31 +21,34 @@ const AlbumList = ({ results, query, setQuery }) => {
   return (
     <div>
       <div className="header-container">
-      <header className='header'>
-      {/* Search Bar */}
-      <div><h1>Jason's Records</h1></div>
-      <form className='search-form'>
-        <input
-          className='search-query'
-          type='text'
-          value={query}
-          placeholder='search'
-          onChange={(e) => {
-            setQuery(e.target.value)
-          }}
-        />
+        <header className="header">
+          {/* Search Bar */}
+          <div>
+            <h1>Jason's Records</h1>
+          </div>
+          <form className="search-form">
+            <input
+              className="search-query"
+              type="text"
+              value={query}
+              placeholder="search"
+              onChange={(e) => {
+                setQuery(e.target.value)
+              }}
+            />
 
-        <input
-          className='reset-button'
-          type='button'
-          value='x'
-          onClick={() => setQuery('')}
-        />
-      </form>
+            <input
+              className="reset-button"
+              type="button"
+              value="x"
+              onClick={() => setQuery('')}
+            />
+          </form>
 
-      {/* End of Search Bar */}
-      </header></div>
-      <ul className='albums'>
+          {/* End of Search Bar */}
+        </header>
+      </div>
+      <ul className="albums">
         {results
           .sort((a, b) => {
             if (a.sortName.toLowerCase() < b.sortName.toLowerCase()) return -1
@@ -57,11 +60,11 @@ const AlbumList = ({ results, query, setQuery }) => {
             return 0
           })
           .map((album) => {
-            const { artist, albumTitle, cover, altImg, deezerId } = album
+            const { artist, albumTitle, cover, deezerId } = album
             return (
               <Link
                 key={album._id}
-                className='album'
+                className="album"
                 to={`/album/${deezerId}`}
                 style={{
                   textDecoration: 'none',
@@ -70,33 +73,12 @@ const AlbumList = ({ results, query, setQuery }) => {
                   textAlign: 'center',
                 }}
               >
-                <li
-                // id={artist[0]}
-                // onClick={(e) => {
-                //   if (altImg) {
-                //     if (
-                //       urlFor(cover.asset._ref).width(500).url() ===
-                //       e.currentTarget.children[0].src
-                //     ) {
-                //       e.currentTarget.children[0].src = urlFor(
-                //         altImg.asset._ref
-                //       )
-                //         .width(500)
-                //         .url()
-                //     } else {
-                //       e.currentTarget.children[0].src = urlFor(
-                //         cover.asset._ref
-                //       )
-                //         .width(500)
-                //         .url()
-                //     }
-                //   }
-                // }}
-                >
+                <li>
                   {cover ? (
                     <img
-                      id='artwork'
-                      className='artwork'
+                      alt="artwork"
+                      id="artwork"
+                      className="artwork"
                       src={urlFor(cover.asset._ref).width(500).url()}
                     />
                   ) : (
@@ -106,7 +88,6 @@ const AlbumList = ({ results, query, setQuery }) => {
                     <h3>{artist}</h3>
                     <h5 style={{ color: '#666' }}>{albumTitle}</h5>
                   </div>
-                  {/* {altImg ? <h3 className='more'>...</h3> : ''} */}
                 </li>
               </Link>
             )

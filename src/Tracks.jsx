@@ -1,7 +1,6 @@
-import { useState, useRef } from "react"
-import { BsFillPlayBtnFill, BsFillStopBtnFill } from "react-icons/bs"
-import "./Tracks.css"
-import { icons } from "react-icons"
+import { useState, useRef } from 'react'
+import { BsFillPlayBtnFill, BsFillStopBtnFill } from 'react-icons/bs'
+import './Tracks.css'
 
 const Tracks = ({ tracks }) => {
   const [sampleUrl, setSampleUrl] = useState(null)

@@ -6,10 +6,6 @@
   cursor: pointer;
 }
 
-.back-nav i {
-  color: blue;
-}
-
 .album-info {
   min-height: 100vh;
   padding-top: 3rem;
